@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Progressive Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="progressive.js" defer></script>
+
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
+
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DU7000006EuID"
+        method="POST"
+        class="bg-white p-8 rounded-2xl shadow-md w-full max-w-xl space-y-6">
+
+    <h2 class="text-2xl font-bold text-center text-gray-800">Progressive Form</h2>
+
+    <!-- Hidden Salesforce Fields -->
+    <input type="hidden" name="oid" value="00DU7000006EuID">
+    <input type="hidden" name="retURL" value="https://bennettandporter.com/">
+
+    <!-- First Name -->
+    <div>
+      <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
+      <input type="text" id="first_name" name="first_name" maxlength="40"
+             class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+    </div>
+
+    <!-- Last Name -->
+    <div>
+      <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name</label>
+      <input type="text" id="last_name" name="last_name" maxlength="80"
+             class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+    </div>
+
+   
+   
+   
+    <!-- Policy Action -->
+    <div>
+        <label for="00NU7000005zuNN" class="block text-sm font-medium text-gray-700">Policy Action</label>
+        <select id="00NU7000005zuNN" name="00NU7000005zuNN"
+        class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option value="Add Vehicle">Add Vehicle</option>
+          <option value="Replace Vehicle">Replace Vehicle</option>
+          <option value="Remove Vehicle">Remove Vehicle</option>
+          <option value="Add Driver">Add Driver</option>
+          <option value="Remove Driver">Remove Driver</option>
+          <option value="Update Address">Update Address</option>
+          <option value="ID Card">ID Card</option>
+          <option value="EOI">EOI</option>
+          <option value="Billing Info">Billing Info</option>
+        </select>
+      </div>
+
+
+<!-- ADD Vehicle -->
+      <div id="addVehicleSection" class="hidden space-y-4 border p-4 rounded-xl bg-gray-50">
+        <div>
+            <label for="00NU7000005zvOn" class="block text-sm font-medium text-gray-700">Policy Number</label>
+            <input type="text" id="00NU7000005zvOn" name="00NU7000005zvOn"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          </div>
+
+          <div >
+            <label for="00NU7000005zuLl" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="date" id="00NU7000005zuLl" name="00NU7000005zuLl"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+          </div>
+          
+      <div>
+        <label for="00NU7000005zsLb" class="block text-sm font-medium text-gray-700">Agent Name</label>
+        <input type="text" id="00NU7000005zsLb" name="00NU7000005zsLb" maxlength="100"
+               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+      </div>
+
+      <div class="mt-4">
+        <label for="00NU700000616Sv" class="block text-sm font-medium text-gray-700">VIN Number</label>
+        <input type="text" id="00NU700000616Sv" name="00NU700000616Sv"
+               class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+      <div>
+        <label for="00NU700000616UX" class="block text-sm font-medium text-gray-700">Year</label>
+        <input type="number" id="00NU700000616UX" name="00NU700000616UX"
+               class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>  
+     
+      <div>
+        <label for="00NU700000616W9" class="block text-sm font-medium text-gray-700">Make</label>
+        <input type="text" id="00NU700000616W9" name="00NU700000616W9"
+               class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+      
+  
+      <div>
+        <label for="00NU700000616Xl" class="block text-sm font-medium text-gray-700">Model</label>
+        <input type="text" id="00NU700000616Xl" name="00NU700000616Xl"
+               class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+      
+
+  
+      <div class="flex items-center">
+        <input id="00NU700000616ZN" name="00NU700000616ZN" type="checkbox"
+           class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+        <label for="00NU700000616ZN" class="ml-2 text-sm font-medium text-gray-700">
+             Ridesharing or Not
+        </label>
+      </div>
+
+      <div>
+       <label for="00NU700000616az" class="block text-sm font-medium text-gray-700">Primary Location</label>
+       <input type="text" id="00NU700000616az" name="00NU700000616az"
+           class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+  
+
+  
+      <div>
+        <label for="00NU700000616cb" class="block text-sm font-medium text-gray-700">Vehicle Financed, Leased or Owned</label>
+        <select id="00NU700000616cb" name="00NU700000616cb"
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+        <option value="">-- Select Option --</option>
+        <option value="Lease">Lease</option>
+        <option value="Own and make payments">Own and make payments</option>
+        <option value="Own and do not make payments">Own and do not make payments</option>
+        <option value="Others">Others</option>
+       </select>
+     </div>
+  
+  <!--  Coverage Selection -->
+      <div>
+        <label for="00NU700000618Uj" class="block text-sm font-medium text-gray-700">Coverage Selection</label>
+        <select id="00NU700000618Uj" name="00NU700000618Uj" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>Policy and vehicle coverage (Defaults)</option>
+      <option>Comprehensive only</option>
+      <option>Policy coverage only</option>
+      </select>
+     </div>
+  
+  <!--  Auto Number -->
+  <div >
+    <label for="00NU700000618WL" class="block text-sm font-medium text-gray-700">Auto Number</label>
+    <input type="text" id="00NU700000618WL" name="00NU700000618WL" maxlength="255"
+           class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+  </div>
+  
+  <!--  Primary Use -->
+  <div>
+    <label for="00NU700000618Xx" class="block text-sm font-medium text-gray-700">Primary Use</label>
+    <select id="00NU700000618Xx" name="00NU700000618Xx" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>Commute</option>
+      <option>Pleasure/Personal</option>
+      <option>Business</option>
+      <option>Farm</option>
+    </select>
+  </div>
+  
+  <!--  Vehicle Ownership -->
+  <div >
+    <label for="00NU700000617vf" class="block text-sm font-medium text-gray-700">Vehicle Ownership</label>
+    <select id="00NU700000617vf" name="00NU700000617vf" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>Less than 1 month</option>
+      <option>At least 1 month, but less than 6 months</option>
+      <option>At least 6 months, but less than 1 year</option>
+      <option>At least 1 year, but less than 3 years</option>
+      <option>At least 3 years, but less than 5 years</option>
+      <option>5 years or more</option>
+    </select>
+  </div>
+  
+  <div >
+    <label for="00NU700000618bB" class="block text-sm font-medium text-gray-700">Comprehensive</label>
+    <select id="00NU700000618bB" name="00NU700000618bB"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$100 deductible</option>
+      <option>$250 deductible</option>
+      <option>$500 deductible</option>
+      <option>$750 deductible</option>
+      <option>$1,000 deductible</option>
+      <option>$1,500 deductible</option>
+      <option>$2,000 deductible</option>
+      <option>$100 deductible with Full Glass</option>
+      <option>$250 deductible with Full Glass</option>
+      <option>$500 deductible with Full Glass</option>
+      <option>$750 deductible with Full Glass</option>
+      <option>$1,000 deductible with Full Glass</option>
+      <option>$1,500 deductible with Full Glass</option>
+      <option>$2,000 deductible with Full Glass</option>
+    </select>
+  </div>
+  <!--  Collision -->
+<div >
+    <label for="00NU700000618cn" class="block text-sm font-medium text-gray-700">Collision</label>
+    <select id="00NU700000618cn" name="00NU700000618cn" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$100 deductible</option>
+      <option>$250 deductible</option>
+      <option>$500 deductible</option>
+      <option>$750 deductible</option>
+      <option>$1,000 deductible</option>
+      <option>$1,500 deductible</option>
+      <option>$2,000 deductible</option>
+    </select>
+  </div>
+  
+  <!--  Rental Reimbursement -->
+  <div >
+    <label for="00NU700000618eP" class="block text-sm font-medium text-gray-700">Rental Reimbursement</label>
+    <select id="00NU700000618eP" name="00NU700000618eP" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$40 each day/maximum 30 days</option>
+      <option>$50 each day/maximum 30 days</option>
+      <option>$60 each day/maximum 30 days</option>
+    </select>
+  </div>
+  
+  <!--  Uninsured Motorist -->
+  <div>
+    <label for="00NU700000614R8" class="block text-sm font-medium text-gray-700">Uninsured Motorist</label>
+    <select id="00NU700000614R8" name="00NU700000614R8" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$25,000 each person / $50,000 each accident</option>
+      <option>$50,000 each person / $100,000 each accident</option>
+      <option>$100,000 combined single limit</option>
+    </select>
+  </div>
+  
+  <!--  Underinsured Motorist -->
+  <div >
+    <label for="00NU700000618g1" class="block text-sm font-medium text-gray-700">Underinsured Motorist</label>
+    <select id="00NU700000618g1" name="00NU700000618g1" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$25,000 each person / $50,000 each accident</option>
+      <option>$50,000 each person / $100,000 each accident</option>
+      <option>$100,000 combined single limit</option>
+    </select>
+  </div>
+  
+  <!--  Medical Payments -->
+  <div >
+    <label for="00NU700000616vy" class="block text-sm font-medium text-gray-700">Medical Payments</label>
+    <select id="00NU700000616vy" name="00NU700000616vy" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$500 each person</option>
+      <option>$1,000 each person</option>
+      <option>$2,000 each person</option>
+      <option>$5,000 each person</option>
+      <option>$10,000 each person</option>
+      <option>$25,000 each person</option>
+    </select>
+  </div>
+   <!--  Roadside Assistance -->
+<div >
+    <label for="00NU700000618hd" class="block text-sm font-medium text-gray-700">Roadside Assistance</label>
+    <select id="00NU700000618hd" name="00NU700000618hd" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>Selected</option>
+      <option>Selected with trip Interruption</option>
+    </select>
+  </div>
+  
+  <!--  Loan/Lease Coverage -->
+  <div >
+    <label for="00NU700000612Ap" class="block text-sm font-medium text-gray-700">Loan/Lease Coverage</label>
+    <select id="00NU700000612Ap" name="00NU700000612Ap" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>Selected</option>
+    </select>
+  </div>
+  
+  <!-- Glass Coverage -->
+  <div >
+    <label for="00NU700000618jF" class="block text-sm font-medium text-gray-700">Glass Coverage</label>
+    <input type="text" id="00NU700000618jF" name="00NU700000618jF" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+  </div>
+
+  <!--  Include policy coverage -->
+  <div class="flex items-center mt-4">
+    <input id="00NU700000618kr" name="00NU700000618kr" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+    <label for="00NU700000618kr" class="ml-2 block text-sm font-medium text-gray-700">Include policy coverage</label>
+  </div>
+  
+  
+  <!--  Bodily Injury & Property Damage Liability -->
+  <div >
+    <label for="00NU700000618o5" class="block text-sm font-medium text-gray-700">Bodily Injury & Property Damage Liability</label>
+    <select id="00NU700000618o5" name="00NU700000618o5" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>$25,000 each person / $50,000 each accident / $15,000 each accident</option>
+      <option>$25,000 each person / $50,000 each accident / $20,000 each accident</option>
+      <option>$25,000 each person / $50,000 each accident / $25,000 each accident</option>
+      <option>$25,000 each person / $50,000 each accident / $50,000 each accident</option>
+      <option>$50,000 each person / $100,000 each accident / $15,000 each accident</option>
+      <option>$50,000 each person / $100,000 each accident / $20,000 each accident</option>
+      <option>$50,000 each person / $100,000 each accident / $25,000 each accident</option>
+      <option>$50,000 each person / $100,000 each accident / $50,000 each accident</option>
+      <option>$50,000 each person / $100,000 each accident / $100,000 each accident</option>
+      <option>$100,000 each person / $300,000 each accident / $15,000 each accident</option>
+      <option>$100,000 each person / $300,000 each accident / $20,000 each accident</option>
+      <option>$100,000 each person / $300,000 each accident / $25,000 each accident</option>
+      <option>$100,000 each person / $300,000 each accident / $50,000 each accident</option>
+      <option>$100,000 each person / $300,000 each accident / $100,000 each accident</option>
+      <option>$100,000 each person / $300,000 each accident / $250,000 each accident</option>
+      <option>$250,000 each person / $500,000 each accident / $15,000 each accident</option>
+      <option>$250,000 each person / $500,000 each accident / $20,000 each accident</option>
+      <option>$250,000 each person / $500,000 each accident / $25,000 each accident</option>
+      <option>$250,000 each person / $500,000 each accident / $50,000 each accident</option>
+      <option>$250,000 each person / $500,000 each accident / $100,000 each accident</option>
+      <option>$250,000 each person / $500,000 each accident / $250,000 each accident</option>
+      <option>$100,000 combined single limit</option>
+      <option>$300,000 combined single limit</option>
+      <option>$500,000 combined single limit</option>
+    </select>
+  </div>
+
+</div>
+
+
+<!-- REPLACE Vehicle -->
+      <div id="replaceVehicleSection" class="hidden space-y-4 border p-4 rounded-xl bg-gray-50">
+
+        <div>
+            <label for="00NU7000005zvOn" class="block text-sm font-medium text-gray-700">Policy Number</label>
+            <input type="text" id="00NU7000005zvOn" name="00NU7000005zvOn"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          </div>
+
+        <div >
+            <label for="00NU7000005zuLl" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="date" id="00NU7000005zuLl" name="00NU7000005zuLl"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+        </div>
+        
+    <div >
+        <label for="00NU7000005zsLb" class="block text-sm font-medium text-gray-700">Agent Name</label>
+        <input type="text" id="00NU7000005zsLb" name="00NU7000005zsLb" maxlength="100"
+               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+      </div>
+
+      <div class="mt-4">
+        <label for="00NU700000616Sv" class="block text-sm font-medium text-gray-700">VIN Number</label>
+        <input type="text" id="00NU700000616Sv" name="00NU700000616Sv"
+               class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+
+      <div>
+        <label for="00NU700000616UX" class="block text-sm font-medium text-gray-700">Year</label>
+        <input type="number" id="00NU700000616UX" name="00NU700000616UX"
+               class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+      
+      <div>
+        <label for="00NU700000616W9" class="block text-sm font-medium text-gray-700">Make</label>
+        <input type="text" id="00NU700000616W9" name="00NU700000616W9"
+               class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+      
+
+  
+      <div>
+        <label for="00NU700000616Xl" class="block text-sm font-medium text-gray-700">Model</label>
+        <input type="text" id="00NU700000616Xl" name="00NU700000616Xl"
+               class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+      
+
+  
+  <div class="flex items-center">
+    <input id="00NU700000616ZN" name="00NU700000616ZN" type="checkbox"
+           class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+    <label for="00NU700000616ZN" class="ml-2 text-sm font-medium text-gray-700">
+      Ridesharing or Not
+    </label>
+  </div>
+  
+
+  
+  <div>
+    <label for="00NU700000616az" class="block text-sm font-medium text-gray-700">Primary Location</label>
+    <input type="text" id="00NU700000616az" name="00NU700000616az"
+           class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+  </div>
+  
+
+  
+  <div>
+    <label for="00NU700000616cb" class="block text-sm font-medium text-gray-700">Vehicle Financed, Leased or Owned</label>
+    <select id="00NU700000616cb" name="00NU700000616cb"
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">-- Select Option --</option>
+      <option value="Lease">Lease</option>
+      <option value="Own and make payments">Own and make payments</option>
+      <option value="Own and do not make payments">Own and do not make payments</option>
+      <option value="Others">Others</option>
+    </select>
+  </div>
+  
+  
+
+  <!--  Coverage Selection -->
+<div >
+    <label for="00NU700000618Uj" class="block text-sm font-medium text-gray-700">Coverage Selection</label>
+    <select id="00NU700000618Uj" name="00NU700000618Uj" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>Policy and vehicle coverage (Defaults)</option>
+      <option>Comprehensive only</option>
+      <option>Policy coverage only</option>
+    </select>
+  </div>
+  
+  <!--  Auto Number -->
+  <div >
+    <label for="00NU700000618WL" class="block text-sm font-medium text-gray-700">Auto Number</label>
+    <input type="text" id="00NU700000618WL" name="00NU700000618WL" maxlength="255"
+           class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+  </div>
+  
+  <!--  Primary Use -->
+  <div >
+    <label for="00NU700000618Xx" class="block text-sm font-medium text-gray-700">Primary Use</label>
+    <select id="00NU700000618Xx" name="00NU700000618Xx" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>Commute</option>
+      <option>Pleasure/Personal</option>
+      <option>Business</option>
+      <option>Farm</option>
+    </select>
+  </div>
+  
+  <!--  Vehicle Ownership -->
+  <div >
+    <label for="00NU700000617vf" class="block text-sm font-medium text-gray-700">Vehicle Ownership</label>
+    <select id="00NU700000617vf" name="00NU700000617vf" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>Less than 1 month</option>
+      <option>At least 1 month, but less than 6 months</option>
+      <option>At least 6 months, but less than 1 year</option>
+      <option>At least 1 year, but less than 3 years</option>
+      <option>At least 3 years, but less than 5 years</option>
+      <option>5 years or more</option>
+    </select>
+  </div>
+  
+  <div >
+    <label for="00NU700000618bB" class="block text-sm font-medium text-gray-700">Comprehensive</label>
+    <select id="00NU700000618bB" name="00NU700000618bB"
+            class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$100 deductible</option>
+      <option>$250 deductible</option>
+      <option>$500 deductible</option>
+      <option>$750 deductible</option>
+      <option>$1,000 deductible</option>
+      <option>$1,500 deductible</option>
+      <option>$2,000 deductible</option>
+      <option>$100 deductible with Full Glass</option>
+      <option>$250 deductible with Full Glass</option>
+      <option>$500 deductible with Full Glass</option>
+      <option>$750 deductible with Full Glass</option>
+      <option>$1,000 deductible with Full Glass</option>
+      <option>$1,500 deductible with Full Glass</option>
+      <option>$2,000 deductible with Full Glass</option>
+    </select>
+  </div>
+  <!--  Collision -->
+<div >
+    <label for="00NU700000618cn" class="block text-sm font-medium text-gray-700">Collision</label>
+    <select id="00NU700000618cn" name="00NU700000618cn" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$100 deductible</option>
+      <option>$250 deductible</option>
+      <option>$500 deductible</option>
+      <option>$750 deductible</option>
+      <option>$1,000 deductible</option>
+      <option>$1,500 deductible</option>
+      <option>$2,000 deductible</option>
+    </select>
+  </div>
+  
+  <!--  Rental Reimbursement -->
+  <div >
+    <label for="00NU700000618eP" class="block text-sm font-medium text-gray-700">Rental Reimbursement</label>
+    <select id="00NU700000618eP" name="00NU700000618eP" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$40 each day/maximum 30 days</option>
+      <option>$50 each day/maximum 30 days</option>
+      <option>$60 each day/maximum 30 days</option>
+    </select>
+  </div>
+  
+  <!--  Uninsured Motorist -->
+  <div >
+    <label for="00NU700000614R8" class="block text-sm font-medium text-gray-700">Uninsured Motorist</label>
+    <select id="00NU700000614R8" name="00NU700000614R8" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$25,000 each person / $50,000 each accident</option>
+      <option>$50,000 each person / $100,000 each accident</option>
+      <option>$100,000 combined single limit</option>
+    </select>
+  </div>
+  
+  <!--  Underinsured Motorist -->
+  <div >
+    <label for="00NU700000618g1" class="block text-sm font-medium text-gray-700">Underinsured Motorist</label>
+    <select id="00NU700000618g1" name="00NU700000618g1" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$25,000 each person / $50,000 each accident</option>
+      <option>$50,000 each person / $100,000 each accident</option>
+      <option>$100,000 combined single limit</option>
+    </select>
+  </div>
+  
+  <!--  Medical Payments -->
+  <div>
+    <label for="00NU700000616vy" class="block text-sm font-medium text-gray-700">Medical Payments</label>
+    <select id="00NU700000616vy" name="00NU700000616vy" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>$500 each person</option>
+      <option>$1,000 each person</option>
+      <option>$2,000 each person</option>
+      <option>$5,000 each person</option>
+      <option>$10,000 each person</option>
+      <option>$25,000 each person</option>
+    </select>
+  </div>
+   <!--  Roadside Assistance -->
+<div >
+    <label for="00NU700000618hd" class="block text-sm font-medium text-gray-700">Roadside Assistance</label>
+    <select id="00NU700000618hd" name="00NU700000618hd" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>Selected</option>
+      <option>Selected with trip Interruption</option>
+    </select>
+  </div>
+  
+  <!--  Loan/Lease Coverage -->
+  <div >
+    <label for="00NU700000612Ap" class="block text-sm font-medium text-gray-700">Loan/Lease Coverage</label>
+    <select id="00NU700000612Ap" name="00NU700000612Ap" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+      <option value="">--None--</option>
+      <option>No Coverage</option>
+      <option>Selected</option>
+    </select>
+  </div>
+  
+  <!-- Glass Coverage -->
+  <div >
+    <label for="00NU700000618jF" class="block text-sm font-medium text-gray-700">Glass Coverage</label>
+    <input type="text" id="00NU700000618jF" name="00NU700000618jF" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+  </div>
+</div>
+<!-- REMOVE Vehicle -->
+    <div id="removeVehicleSection" class="hidden space-y-4 border p-4 rounded-xl bg-gray-50">
+        <div>
+            <label for="00NU7000005zvOn" class="block text-sm font-medium text-gray-700">Policy Number</label>
+            <input type="text" id="00NU7000005zvOn" name="00NU7000005zvOn"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          </div>
+
+        <div >
+            <label for="00NU7000005zuLl" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="date" id="00NU7000005zuLl" name="00NU7000005zuLl"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+        </div>
+        
+    <div>
+        <label for="00NU7000005zsLb" class="block text-sm font-medium text-gray-700">Agent Name</label>
+        <input type="text" id="00NU7000005zsLb" name="00NU7000005zsLb" maxlength="100"
+               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+      </div>
+
+    </div>
+
+<!-- ADD DRIVER -->
+    <div id="addDriverSection" class="hidden space-y-4 border p-4 rounded-xl bg-gray-50">
+        <div>
+            <label for="00NU7000005zvOn" class="block text-sm font-medium text-gray-700">Policy Number</label>
+            <input type="text" id="00NU7000005zvOn" name="00NU7000005zvOn"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          </div>
+        <div >
+            <label for="00NU7000005zuLl" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="date" id="00NU7000005zuLl" name="00NU7000005zuLl"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+        </div>
+
+        
+    <div >
+        <label for="00NU7000005zsLb" class="block text-sm font-medium text-gray-700">Agent Name</label>
+        <input type="text" id="00NU7000005zsLb" name="00NU7000005zsLb" maxlength="100"
+               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+      </div>
+
+      <div >
+        <label for="00NU7000005zuC5" class="block text-sm font-medium text-gray-700">License Type</label>
+        <select id="00NU7000005zuC5" name="00NU7000005zuC5"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option>Operator - Personal auto</option>
+          <option>Commercial Vehicle/Business (non-Chauffer)</option>
+          <option>Chauffer</option>
+          <option>Permit</option>
+          <option>Not Licensed/State ID</option>
+        </select>
+      </div>
+
+      <div >
+        <label for="00NU7000005zuGv" class="block text-sm font-medium text-gray-700">Number of Years Licensed</label>
+        <select id="00NU7000005zuGv" name="00NU7000005zuGv"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option>3 years or more</option>
+          <option>At least 2 years, but less than 3 years</option>
+          <option>At least 1 year, but less than 2 years</option>
+          <option>Less than 1 year</option>
+        </select>
+      </div>
+
+      <div >
+        <label for="00NU7000005zuSD" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+        <input type="date" id="00NU7000005zuSD" name="00NU7000005zuSD"
+               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+
+      <div >
+        <label for="00NU7000005zqRr" class="block text-sm font-medium text-gray-700">Gender</label>
+        <select id="00NU7000005zqRr" name="00NU7000005zqRr"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+        
+      <div >
+        <label for="00NU7000005zuTp" class="block text-sm font-medium text-gray-700">Marital Status</label>
+        <select id="00NU7000005zuTp" name="00NU7000005zuTp"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option>Married</option>
+          <option>Single</option>
+        </select>
+      </div>
+
+      <div >
+        <label for="00NU7000005zuVR" class="block text-sm font-medium text-gray-700">Relationship to Insured</label>
+        <select id="00NU7000005zuVR" name="00NU7000005zuVR"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option>Spouse</option>
+          <option>Child</option>
+          <option>Parent</option>
+          <option>Other relation</option>
+        </select>
+      </div>
+
+      <div >
+        <label for="00NU7000005zuFJ" class="block text-sm font-medium text-gray-700">License Status</label>
+        <select id="00NU7000005zuFJ" name="00NU7000005zuFJ"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option>Valid</option>
+          <option>Suspended</option>
+          <option>Permanently Revoked</option>
+          <option>Expired</option>
+        </select>
+      </div>
+
+      <div >
+        <label for="00NU7000005zuIX" class="block text-sm font-medium text-gray-700">State Licensed</label>
+        <select id="00NU7000005zuIX" name="00NU7000005zuIX"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option>Alabama</option>
+          <option>Alaska</option>
+          <option>Alberta</option>
+          <option>Arizona</option>
+          <option>Arkansas</option>
+          <option>British Columbia</option>
+          <option>California</option>
+          <option>Colorado</option>
+          <option>Connecticut</option>
+          <option>Delaware</option>
+          <option>Dist Of Columbia</option>
+          <option>Florida</option>
+          <option>Georgia</option>
+          <option>Guam</option>
+          <option>Hawaii</option>
+          <option>Idaho</option>
+          <option>Illinois</option>
+          <option>Indiana</option>
+          <option>International</option>
+          <option>Iowa</option>
+          <option>Kansas</option>
+          <option>Kentucky</option>
+          <option>Louisiana</option>
+          <option>Maine</option>
+          <option>Manitoba</option>
+          <option>Maryland</option>
+          <option>Massachusetts</option>
+          <option>Mexico</option>
+          <option>Michigan</option>
+          <option>Minnesota</option>
+          <option>Mississippi</option>
+          <option>Missouri</option>
+          <option>Montana</option>
+          <option>Nebraska</option>
+          <option>Nevada</option>
+          <option>New Brunswick</option>
+          <option>New Hampshire</option>
+          <option>New Jersey</option>
+          <option>New Mexico</option>
+          <option>New York</option>
+          <option>Newfoundland</option>
+          <option>North Carolina</option>
+          <option>North Dakota</option>
+          <option>Northwest Territories</option>
+          <option>Nova Scotia</option>
+          <option>Ohio</option>
+          <option>Oklahoma</option>
+          <option>Ontario</option>
+          <option>Oregon</option>
+          <option>Pennsylvania</option>
+          <option>Prince Edward Island</option>
+          <option>Puerto Rico</option>
+          <option>Quebec</option>
+          <option>Rhode Island</option>
+          <option>Saskatchewan</option>
+          <option>South Carolina</option>
+          <option>South Dakota</option>
+          <option>Tennessee</option>
+          <option>Texas</option>
+          <option>Utah</option>
+          <option>Vermont</option>
+          <option>Virgin Islands</option>
+          <option>Virginia</option>
+          <option>Washington</option>
+          <option>West Virginia</option>
+          <option>Wisconsin</option>
+          <option>Wyoming</option>
+          <option>Yukon Territory</option>
+        </select>
+      </div>
+      <div>
+        <label for="00NU7000005zuDh" class="block text-sm font-medium text-gray-700">Driver Status</label>
+        <select id="00NU7000005zuDh" name="00NU7000005zuDh"
+                class="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">-- Select Status --</option>
+          <option value="Insured Driver (includes permit driver)">Insured Driver (includes permit driver)</option>
+          <option value="Excluded Driver (no coverage)">Excluded Driver (no coverage)</option>
+          <option value="List only - Military deployed overseas">List only - Military deployed overseas</option>
+        </select>
+      </div>
+      
+
+    </div>
+    
+<!-- REMOVE DRIVER -->
+
+    <div id="removeDriverSection" class="hidden space-y-4 border p-4 rounded-xl bg-gray-50">
+        <div>
+            <label for="00NU7000005zvOn" class="block text-sm font-medium text-gray-700">Policy Number</label>
+            <input type="text" id="00NU7000005zvOn" name="00NU7000005zvOn"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          </div>
+
+          <div >
+            <label for="00NU7000005zuLl" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="date" id="00NU7000005zuLl" name="00NU7000005zuLl"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+          </div>
+
+         
+    <div>
+        <label for="00NU7000005zsLb" class="block text-sm font-medium text-gray-700">Agent Name</label>
+        <input type="text" id="00NU7000005zsLb" name="00NU7000005zsLb" maxlength="100"
+               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+      </div>
+
+      <div >
+        <label for="00NU7000005zvT7" class="block text-sm font-medium text-gray-700">Removal Reason</label>
+        <select id="00NU7000005zvT7" name="00NU7000005zvT7"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option>Divorce/Legal Reason</option>
+          <option>Incarceration</option>
+          <option>Death</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+
+    </div>
+
+
+<!-- UPDTAE ADDRESS -->
+    <div id="updateAddressSection" class="hidden space-y-4 border p-4 rounded-xl bg-gray-50">
+        <div>
+            <label for="00NU7000005zvOn" class="block text-sm font-medium text-gray-700">Policy Number</label>
+            <input type="text" id="00NU7000005zvOn" name="00NU7000005zvOn"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          </div>
+
+          <div >
+            <label for="00NU7000005zuLl" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="date" id="00NU7000005zuLl" name="00NU7000005zuLl"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+          </div>
+
+       <div >
+        <label for="00NU7000005zsLb" class="block text-sm font-medium text-gray-700">Agent Name</label>
+        <input type="text" id="00NU7000005zsLb" name="00NU7000005zsLb" maxlength="100"
+               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+      </div>
+
+      <div >
+        <label for="00NU7000005zvRV" class="block text-sm font-medium text-gray-700">Address Type</label>
+        <select id="00NU7000005zvRV" name="00NU7000005zvRV"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">--None--</option>
+          <option>Domestic</option>
+          <option>International (outside U.S., Puerto Rico and Virgin Islands)</option>
+        </select>
+      </div>
+      <div>
+        <label for="00NU7000005zvUj" class="block text-sm font-medium text-gray-700">City</label>
+        <input type="text" id="00NU7000005zvUj" name="00NU7000005zvUj" maxlength="40"
+               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+      </div>
+      <div >
+        <label for="00NU7000005zvWL" class="block text-sm font-medium text-gray-700">State</label>
+        <select id="00NU7000005zvWL" name="00NU7000005zvWL"
+                class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <!-- Reuse the same options as State Licensed -->
+          <option value="">--None--</option>
+          <option>Alabama</option>
+          <option>Alaska</option>
+          <option>Alberta</option>
+          <option>Arizona</option>
+          <option>Arkansas</option>
+          <option>British Columbia</option>
+          <option>California</option>
+          <option>Colorado</option>
+          <option>Connecticut</option>
+          <option>Delaware</option>
+          <option>Dist Of Columbia</option>
+          <option>Florida</option>
+          <option>Georgia</option>
+          <option>Guam</option>
+          <option>Hawaii</option>
+          <option>Idaho</option>
+          <option>Illinois</option>
+          <option>Indiana</option>
+          <option>International</option>
+          <option>Iowa</option>
+          <option>Kansas</option>
+          <option>Kentucky</option>
+          <option>Louisiana</option>
+          <option>Maine</option>
+          <option>Manitoba</option>
+          <option>Maryland</option>
+          <option>Massachusetts</option>
+          <option>Mexico</option>
+          <option>Michigan</option>
+          <option>Minnesota</option>
+          <option>Mississippi</option>
+          <option>Missouri</option>
+          <option>Montana</option>
+          <option>Nebraska</option>
+          <option>Nevada</option>
+          <option>New Brunswick</option>
+          <option>New Hampshire</option>
+          <option>New Jersey</option>
+          <option>New Mexico</option>
+          <option>New York</option>
+          <option>Newfoundland</option>
+          <option>North Carolina</option>
+          <option>North Dakota</option>
+          <option>Northwest Territories</option>
+          <option>Nova Scotia</option>
+          <option>Ohio</option>
+          <option>Oklahoma</option>
+          <option>Ontario</option>
+          <option>Oregon</option>
+          <option>Pennsylvania</option>
+          <option>Prince Edward Island</option>
+          <option>Puerto Rico</option>
+          <option>Quebec</option>
+          <option>Rhode Island</option>
+          <option>Saskatchewan</option>
+          <option>South Carolina</option>
+          <option>South Dakota</option>
+          <option>Tennessee</option>
+          <option>Texas</option>
+          <option>Utah</option>
+          <option>Vermont</option>
+          <option>Virgin Islands</option>
+          <option>Virginia</option>
+          <option>Washington</option>
+          <option>West Virginia</option>
+          <option>Wisconsin</option>
+          <option>Wyoming</option>
+          <option>Yukon Territory</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+         <select id="country" name="country"
+          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          <option value="">-- Select Country --</option>
+          <option value="Australia">Australia</option>
+          <option value="Afghanistan">Afghanistan</option>
+          <option value="Albania">Albania</option>
+          <option value="Algeria">Algeria</option>
+          <option value="American Samoa">American Samoa</option>
+          <option value="Andorra">Andorra</option>
+          <!-- Add the rest of the countries as needed -->
+          <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+      </div>
+      <div >
+        <label for="zipcode" class="block text-sm font-medium text-gray-700">Zip Code</label>
+        <input type="text" id="zipcode" name="zipcode"
+               class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+      </div>
+
+      <!--  Set All to Mailing Address -->
+     <div class="flex items-center mt-4">
+    <input id="00NU700000619SP" name="00NU700000619SP" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+    <label for="00NU700000619SP" class="ml-2 block text-sm text-gray-700">Set All to Mailing Address</label>
+      </div>
+
+
+    </div>
+
+
+ <!-- ID CARD -->   
+    <div id="idCardSection" class="hidden space-y-4 border p-4 rounded-xl bg-gray-50">
+        <div>
+            <label for="00NU7000005zvOn" class="block text-sm font-medium text-gray-700">Policy Number</label>
+            <input type="text" id="00NU7000005zvOn" name="00NU7000005zvOn"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          </div>
+
+          <div >
+            <label for="00NU700000618WL" class="block text-sm font-medium text-gray-700">Auto Number</label>
+            <input type="text" id="00NU700000618WL" name="00NU700000618WL" maxlength="255"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+          </div>
+    </div>
+
+
+ <!--  EOI -->
+    <div id="eoiSection" class="hidden space-y-4 border p-4 rounded-xl bg-gray-50">
+        <div>
+            <label for="00NU7000005zvOn" class="block text-sm font-medium text-gray-700">Policy Number</label>
+            <input type="text" id="00NU7000005zvOn" name="00NU7000005zvOn"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          </div>
+
+          <div >
+            <label for="00NU7000005zvUj" class="block text-sm font-medium text-gray-700">City</label>
+            <input type="text" id="00NU7000005zvUj" name="00NU7000005zvUj" maxlength="40"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"/>
+          </div>
+
+          <div >
+            <label for="00NU7000005zvWL" class="block text-sm font-medium text-gray-700">State</label>
+            <select id="00NU7000005zvWL" name="00NU7000005zvWL"
+                    class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+              <!-- Reuse the same options as State Licensed -->
+              <option value="">--None--</option>
+              <option>Alabama</option>
+              <option>Alaska</option>
+              <option>Alberta</option>
+              <option>Arizona</option>
+              <option>Arkansas</option>
+              <option>British Columbia</option>
+              <option>California</option>
+              <option>Colorado</option>
+              <option>Connecticut</option>
+              <option>Delaware</option>
+              <option>Dist Of Columbia</option>
+              <option>Florida</option>
+              <option>Georgia</option>
+              <option>Guam</option>
+              <option>Hawaii</option>
+              <option>Idaho</option>
+              <option>Illinois</option>
+              <option>Indiana</option>
+              <option>International</option>
+              <option>Iowa</option>
+              <option>Kansas</option>
+              <option>Kentucky</option>
+              <option>Louisiana</option>
+              <option>Maine</option>
+              <option>Manitoba</option>
+              <option>Maryland</option>
+              <option>Massachusetts</option>
+              <option>Mexico</option>
+              <option>Michigan</option>
+              <option>Minnesota</option>
+              <option>Mississippi</option>
+              <option>Missouri</option>
+              <option>Montana</option>
+              <option>Nebraska</option>
+              <option>Nevada</option>
+              <option>New Brunswick</option>
+              <option>New Hampshire</option>
+              <option>New Jersey</option>
+              <option>New Mexico</option>
+              <option>New York</option>
+              <option>Newfoundland</option>
+              <option>North Carolina</option>
+              <option>North Dakota</option>
+              <option>Northwest Territories</option>
+              <option>Nova Scotia</option>
+              <option>Ohio</option>
+              <option>Oklahoma</option>
+              <option>Ontario</option>
+              <option>Oregon</option>
+              <option>Pennsylvania</option>
+              <option>Prince Edward Island</option>
+              <option>Puerto Rico</option>
+              <option>Quebec</option>
+              <option>Rhode Island</option>
+              <option>Saskatchewan</option>
+              <option>South Carolina</option>
+              <option>South Dakota</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Utah</option>
+              <option>Vermont</option>
+              <option>Virgin Islands</option>
+              <option>Virginia</option>
+              <option>Washington</option>
+              <option>West Virginia</option>
+              <option>Wisconsin</option>
+              <option>Wyoming</option>
+              <option>Yukon Territory</option>
+            </select>
+          </div>
+
+          <!-- International Mailing Address -->
+<div>
+    <label for="00NU7000005zvZZ" class="block text-sm font-medium text-gray-700">
+      International Mailing Address
+    </label>
+    <input type="text" id="00NU7000005zvZZ" name="00NU7000005zvZZ"
+           class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+  </div>
+  
+
+  <div class="flex items-center">
+    <input id="00NU7000005zvbB" name="00NU7000005zvbB" type="checkbox"
+           class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+    <label for="00NU7000005zvbB" class="ml-2 text-sm font-medium text-gray-700">
+      Is PO Box or Military Address?
+    </label>
+  </div>
+  
+  
+          <div >
+            <label for="zipcode" class="block text-sm font-medium text-gray-700">Zip Code</label>
+  <input type="text" id="zipcode" name="zipcode"
+         class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+          </div>
+
+          <div >
+    <label for="00NU700000619NZ" class="block text-sm font-medium text-gray-700">1st mortgage and/or 2nd Mortgage</label>
+    <input type="text" id="00NU700000619NZ" name="00NU700000619NZ" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+         </div>
+  
+          <div >
+    <label for="00NU700000618TX" class="block text-sm font-medium text-gray-700">Lender/Mortgage Full Name</label>
+    <input type="text" id="00NU700000618TX" name="00NU700000618TX" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+          </div>
+  
+          <div class="flex items-center mt-4">
+            <input id="00NU700000619Qn" name="00NU700000619Qn" type="checkbox"
+                   class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+            <label for="00NU700000619Qn" class="ml-2 text-sm font-medium text-gray-700">
+              Escrow
+            </label>
+          </div>
+          
+  
+
+  
+         <div>
+    <label for="00NU700000619U1" class="block text-sm font-medium text-gray-700">Lender/Mortgage Address</label>
+    <input type="text" id="00NU700000619U1" name="00NU700000619U1" class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+        </div>
+
+    </div>
+  
+
+
+  <!--  BILLING INFO -->
+
+    <div id="billingInfoSection" class="hidden space-y-4 border p-4 rounded-xl bg-gray-50">
+        <div>
+            <label for="00NU7000005zvOn" class="block text-sm font-medium text-gray-700">Policy Number</label>
+            <input type="text" id="00NU7000005zvOn" name="00NU7000005zvOn"
+                   class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+          </div>
+    </div>
+
+
+
+<!-- Submit Button -->
+    <div class="text-center">
+      <button type="submit"
+              class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200">
+        Submit
+      </button>
+    </div>
+  </form>
+
+</body>
+</html>
