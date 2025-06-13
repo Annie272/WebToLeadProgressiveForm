@@ -9,8 +9,6 @@
   <body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
     <form
       action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DU7000006EuID"
-
-      
       method="POST"
       class="bg-white p-8 rounded-2xl shadow-md w-full max-w-xl space-y-6"
     >
@@ -19,12 +17,23 @@
       </h2>
 
       <input type="hidden" name="oid" value="00DU7000006EuID" />
-      <input type="hidden" name="recordType" id="recordType" value="012U7000003Hjv3IAC" />
+      <input
+        type="hidden"
+        name="recordType"
+        id="recordType"
+        value="012U7000003Hjv3IAC"
+      />
       <input
         type="hidden"
         name="retURL"
         value="https://bennettandporter.com/"
       />
+
+      <!-- Default hidden fields -->
+      <input type="hidden" name="status" value="New" />
+      <input type="hidden" name="email" value="123@gmail.com" />
+      <input type="hidden" name="phone" value="1213234567" />
+      <input type="hidden" name="lead_source" value="Web Form" />
 
       <div>
         <label for="first_name" class="block text-sm font-medium text-gray-700"
@@ -53,8 +62,11 @@
           class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
+
       <div>
-        <label for="company" class="block text-sm font-medium text-gray-700">Company</label>
+        <label for="company" class="block text-sm font-medium text-gray-700"
+          >Company</label
+        >
         <input
           type="text"
           id="company"
@@ -63,72 +75,6 @@
           class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
-      <div>
-        <label for="status" class="block text-sm font-medium text-gray-700">Lead Status</label>
-        <select
-          id="status"
-          name="status"
-          required
-          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        >
-          <option value="">-- Select --</option>
-          <option value="Unqualified">Unqualified</option>
-          <option value="New">New</option>
-          <option value="Gathering Information">Gathering Information</option>
-          <option value="Qualified">Qualified</option>
-        </select>
-      </div>
-      <div>
-        <label for="lead_source" class="block text-sm font-medium text-gray-700">Lead Source</label>
-        <select
-          id="lead_source"
-          name="lead_source"
-          required
-          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        >
-          <option value="">-- Select --</option>
-          <option value="Call In">Call In</option>
-          <option value="Call In (Private Client)">Call In (Private Client)</option>
-          <option value="Campaign">Campaign</option>
-          <option value="Cross Sell">Cross Sell</option>
-          <option value="Cross Sale (Private Client)">Cross Sale (Private Client)</option>
-          <option value="Email Referral">Email Referral</option>
-          <option value="Facebook">Facebook</option>
-          <option value="Phone Call Referral">Phone Call Referral</option>
-          <option value="PPC">PPC</option>
-          <option value="Recaptured Client">Recaptured Client</option>
-          <option value="Web Form">Web Form</option>
-          <option value="Web Form (Private Client)">Web Form (Private Client)</option>
-          <option value="Web Search">Web Search</option>
-          <option value="Wealth Management">Wealth Management</option>
-          <option value="Yelp">Yelp</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        />
-      </div>
-      
-      <div>
-        <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          required
-          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
-        />
-      </div>
-      
-                  
-      
 
       <div>
         <label
@@ -216,10 +162,14 @@
             >
               <option value="">-- Select Option --</option>
               <option value="Named Insured">Named Insured</option>
+              <option value="Lienholder – SAFE 1 CREDIT UNION">
+                Lienholder – SAFE 1 CREDIT UNION
+              </option>
               <option value="Other Lienholder">Other Lienholder</option>
               <option value="Other Additional Interest">
                 Other Additional Interest
               </option>
+              <option value="Spouse">Spouse</option>
               <option value="Other">Other</option>
             </select>
           </div>
@@ -315,10 +265,14 @@
         const makeInput = document.getElementById("00NU700000616W9");
         const modelInput = document.getElementById("00NU700000616Xl");
         const requesterSelect = document.getElementById("requester");
-        const requesterNameWrapper = document.getElementById("requesterNameWrapper");
+        const requesterNameWrapper = document.getElementById(
+          "requesterNameWrapper"
+        );
         const requesterNameInput = document.getElementById("requester_name");
         const vinSection = document.getElementById("vinSection");
-        const vehicleDetailsSection = document.getElementById("vehicleDetailsSection");
+        const vehicleDetailsSection = document.getElementById(
+          "vehicleDetailsSection"
+        );
 
         const sections = {
           "Add Vehicle": "addVehicleSection",
@@ -328,7 +282,7 @@
           "Remove Driver": "removeDriverSection",
           "Update Address": "updateAddressSection",
           "ID Card": "idCardSection",
-          "EOI": "eoiSection",
+          EOI: "eoiSection",
           "Billing Info": "billingInfoSection",
         };
 
@@ -347,7 +301,14 @@
         }
 
         function updateRequesterVisibility() {
-          if (requesterSelect && requesterSelect.value !== "Named Insured") {
+          const noRequesterNameNeeded = [
+            "Named Insured",
+            "Lienholder – SAFE 1 CREDIT UNION",
+          ];
+          if (
+            requesterSelect &&
+            !noRequesterNameNeeded.includes(requesterSelect.value)
+          ) {
             requesterNameWrapper.classList.remove("hidden");
           } else {
             requesterNameWrapper.classList.add("hidden");
@@ -359,7 +320,11 @@
         }
 
         function updateVinVisibility() {
-          if (isFilled(policyNumberInput) && isFilled(agentNameInput) && isFilled(dateInput)) {
+          if (
+            isFilled(policyNumberInput) &&
+            isFilled(agentNameInput) &&
+            isFilled(dateInput)
+          ) {
             vinSection.classList.remove("hidden");
           } else {
             vinSection.classList.add("hidden");
@@ -386,9 +351,11 @@
 
         document.querySelector("form").addEventListener("submit", function (e) {
           let errors = [];
-          if (!isFilled(policyNumberInput)) errors.push("Policy Number is required.");
+          if (!isFilled(policyNumberInput))
+            errors.push("Policy Number is required.");
           if (!isFilled(agentNameInput)) errors.push("Agent Name is required.");
-          if (!isFilled(dateInput)) errors.push("Date to add vehicle is required.");
+          if (!isFilled(dateInput))
+            errors.push("Date to add vehicle is required.");
           if (!vinSection.classList.contains("hidden") && !isFilled(vinInput)) {
             errors.push("VIN Number is required.");
           }
@@ -397,7 +364,13 @@
             if (!isFilled(makeInput)) errors.push("Make is required.");
             if (!isFilled(modelInput)) errors.push("Model is required.");
           }
-          if (requesterSelect && requesterSelect.value !== "Named Insured" && !isFilled(requesterNameInput)) {
+          if (
+            requesterSelect &&
+            !["Named Insured", "Lienholder – SAFE 1 CREDIT UNION"].includes(
+              requesterSelect.value
+            ) &&
+            !isFilled(requesterNameInput)
+          ) {
             errors.push("Requester Name is required.");
           }
           if (errors.length > 0) {
