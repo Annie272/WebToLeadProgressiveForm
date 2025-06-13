@@ -8,7 +8,9 @@
   </head>
   <body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
     <form
-      action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DU7000006EuID"
+      action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DU7000006EuID"
+
+      
       method="POST"
       class="bg-white p-8 rounded-2xl shadow-md w-full max-w-xl space-y-6"
     >
@@ -17,6 +19,7 @@
       </h2>
 
       <input type="hidden" name="oid" value="00DU7000006EuID" />
+      <input type="hidden" name="recordType" id="recordType" value="012U7000003Hjv3IAC" />
       <input
         type="hidden"
         name="retURL"
@@ -50,6 +53,81 @@
           class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
+      <div>
+        <label for="company" class="block text-sm font-medium text-gray-700">Company</label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          required
+          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+      <div>
+        <label for="status" class="block text-sm font-medium text-gray-700">Lead Status</label>
+        <select
+          id="status"
+          name="status"
+          required
+          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        >
+          <option value="">-- Select --</option>
+          <option value="Unqualified">Unqualified</option>
+          <option value="New">New</option>
+          <option value="Gathering Information">Gathering Information</option>
+          <option value="Qualified">Qualified</option>
+        </select>
+      </div>
+      <div>
+        <label for="lead_source" class="block text-sm font-medium text-gray-700">Lead Source</label>
+        <select
+          id="lead_source"
+          name="lead_source"
+          required
+          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        >
+          <option value="">-- Select --</option>
+          <option value="Call In">Call In</option>
+          <option value="Call In (Private Client)">Call In (Private Client)</option>
+          <option value="Campaign">Campaign</option>
+          <option value="Cross Sell">Cross Sell</option>
+          <option value="Cross Sale (Private Client)">Cross Sale (Private Client)</option>
+          <option value="Email Referral">Email Referral</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Phone Call Referral">Phone Call Referral</option>
+          <option value="PPC">PPC</option>
+          <option value="Recaptured Client">Recaptured Client</option>
+          <option value="Web Form">Web Form</option>
+          <option value="Web Form (Private Client)">Web Form (Private Client)</option>
+          <option value="Web Search">Web Search</option>
+          <option value="Wealth Management">Wealth Management</option>
+          <option value="Yelp">Yelp</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+      
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          class="mt-1 w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+                  
+      
 
       <div>
         <label
